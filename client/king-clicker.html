@@ -1,0 +1,59 @@
+<head>
+  <title>king-clicker</title>
+</head>
+
+<body>
+  <h1>Welcome to King Clicker!</h1>
+
+  {{> show_chips}}
+  {{> show_pucks}}
+  {{> show_bikeParts}}
+  {{> show_coffee}}
+  {{> show_money}}
+  {{> show_bike}}
+</body>
+
+<template name="show_chips">
+  <p>Chips: {{chips}} <button class='make_chips'>Make Chips</button></p>
+</template>
+
+<template name="show_pucks">
+  
+  <p>Aluminum Pucks: {{pucks}} 
+  {{#if canMakePucks}}
+    <button class="make_pucks">Make Aluminum Puck</button> -1000 Chips
+  {{/if}}
+  {{#if canSellPucks}}
+    <button class="sell_pucks">Sell Aluminum Pucks</button> - 10 pucks
+  {{/if}}
+  </p>
+</template>
+
+<template name="show_bikeParts">
+  <p>Bike Parts: {{bikeParts}}
+  {{#if canTradeParts}}
+    <button class="trade_parts">Trade Bike parts for coffee</button> -10 parts
+  {{/if}}
+  </p>  
+</template>
+
+<template name="show_coffee">
+  <p>Coffee: {{coffee}}  Drinking: {{consumedCoffee}}/s</p>
+</template>
+
+<template name="show_money">
+  <p>Money: ${{money}}
+  {{#if canBuyBike}}
+    <button class="buy_bike">Purchase a bike</button> -$500
+  {{/if}}
+  </p>
+</template>
+
+<template name="show_bike">
+  <p>Bike: {{bikes}}
+    {{#if sellBikes}}
+      <button class="sell_bike">Sell a bike</button> -$250
+    {{/if}}
+  </p>
+  <p>Workers: {{workers}} / {{maxWorkers}}</p>
+</template>
